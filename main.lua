@@ -43,6 +43,12 @@ function module.Create(Name, Parent)
     return ui
 end
 
+function module.PrintTable()
+    for i, v in pairs(module.uis) do
+        print(i, v)
+    end
+end
+
 function module.RemoveUIElement(NameOfElement)
     if table.find(module.uis, NameOfElement) then
         module.uis[NameOfElement][1]:Destroy()
