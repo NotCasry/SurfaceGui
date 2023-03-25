@@ -34,6 +34,10 @@ function module.Create(Name, Parent)
         return self
     end
 
+    function ui:Remove()
+        BillboardGui:Destroy()
+    end
+
     return ui
 end
 
