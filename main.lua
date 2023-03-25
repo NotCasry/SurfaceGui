@@ -12,6 +12,8 @@ function module.Create(Parent)
     BillboardGui.StudsOffset = _G.StudsOffset
 
     function ui:CreateText()
+        local self = {}
+
         local TextLabel = Instance.new("TextLabel", BillboardGui)
         TextLabel.BackgroundColor3 = _G.Text_BackgroundColor3
         TextLabel.BackgroundTransparency = _G.Text_BackgroundTransparency
@@ -22,6 +24,12 @@ function module.Create(Parent)
         TextLabel.Size = UDim2.new(1, 0, 1, 0)
         TextLabel.TextScaled = true
         TextLabel.TextColor3 = _G.TextColor3
+
+        function self:Remove()
+            TextLabel:Destroy()
+        end
+
+        return self
     end
 
     return ui
