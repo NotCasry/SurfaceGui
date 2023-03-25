@@ -31,6 +31,8 @@ function module.Create(Name, Parent)
         self.Text_BorderSizePixel = 0
         self.Text_TextDisplay = ""
         self.Text_TextColor3 = Color3.fromRGB(255, 255, 255)
+        self.Text_TextScaled = true
+        self.Text_Size = 14
 
         function self.CreateLabel(Billboard)
             local TextLabel = Instance.new("TextLabel", Billboard)
@@ -43,7 +45,8 @@ function module.Create(Name, Parent)
             TextLabel.Text = self.Text_TextDisplay
             TextLabel.TextColor3 = self.Text_TextColor3
             TextLabel.Size = UDim2.new(1, 0, 1, 0)
-            TextLabel.TextScaled = true
+            TextLabel.TextScaled = self.Text_TextScaled
+            TextLabel.TextSize = self.Text_Size
         end
 
         return self
