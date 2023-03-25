@@ -15,10 +15,7 @@ function module.Create(Name, Parent)
     BillboardGui.Name = Name
 
     table.insert(module.uis, {
-        [BillboardGui] = {
-            BillboardGui,
-            BillboardGui.Parent
-        }
+        [BillboardGui] = {BillboardGui, BillboardGui.Parent};
     })
 
     function ui:CreateText(Name)
@@ -37,7 +34,7 @@ function module.Create(Name, Parent)
         TextLabel.TextColor3 = _G.TextColor3
 
         table.insert(module.uis, {
-            [TextLabel.Name] = {TextLabel, TextLabel.Parent}
+            [TextLabel.Name] = {TextLabel, TextLabel.Parent};
         })
 
         return self
@@ -47,7 +44,7 @@ function module.Create(Name, Parent)
 end
 
 function module.RemoveUIElement(NameOfElement)
-    if module.uis[NameOfElement] then
+    if table.find(module.uis, NameOfElement) then
         module.uis[NameOfElement][1]:Destroy()
     end
 end
