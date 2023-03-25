@@ -9,9 +9,11 @@ _G.Y = 500
 _G.Frame_Transparency = 1
 _G.Frame_Color3 = Color3.fromRGB(0, 0, 0)
 
-function module.Create(type, parent)
+function module.Create(Parent)
+    local ui = {}
+
     local Surface = Instance.new("SurfaceGui")
-    Surface.Parent = parent
+    Surface.Parent = Parent
     Surface.Name = tostring(
         math.random(min, max)
     )
@@ -23,8 +25,7 @@ function module.Create(type, parent)
     Frame.BackgroundTransparency = _G.Frame_Transparency
     Frame.BackgroundColor3 = _G.Frame_Color3
 
-    if type == "Text" then
-        
+    function ui.Text()
         local self = {}
         self.Font = Enum.Font.Ubuntu
         self.Text = ""
@@ -43,9 +44,10 @@ function module.Create(type, parent)
         TextLabel.TextStrokeColor3 = self.TextStrokeColor3
         TextLabel.TextStrokeTransparency = self.TextStrokeTransparency
 
-        return self
+        return self 
     end
 
+    return ui
 end
 
 return module
