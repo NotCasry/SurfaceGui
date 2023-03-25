@@ -20,6 +20,7 @@ function module.Create(Parent)
         TextLabel.BorderSizePixel = _G.Text_BorderSizePixel
         TextLabel.Text = _G.Text_TextDisplay
         TextLabel.Size = UDim2.new(1, 0, 1, 0)
+        TextLabel.TextScaled = true
     end
 
     return ui
