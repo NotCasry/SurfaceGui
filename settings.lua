@@ -11,3 +11,4 @@ _G.Text_BorderColor3 = Color3.fromRGB(0, 0, 0)
 _G.Text_BorderMode = Enum.BorderMode.Outline
 _G.Text_BorderSizePixel = 0
 _G.Text_TextDisplay = ""
+_G.TextColor3 = Color3.fromRGB(255, 255, 255)
