@@ -57,7 +57,10 @@ end
 
 function module.RemoveUIElement(NameOfElement)
     if table.find(module.uis, NameOfElement) then
-        module.uis[NameOfElement][1]:Destroy()
+        module.uis[NameOfElement]["Instance"]:Destroy()
+        print("Destroyed!")
+    elseif not table.find(module.uis, NameOfElement) then
+        print("Element doesn't exist!")
     end
 end
 
