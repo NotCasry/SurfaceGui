@@ -21,6 +21,7 @@ function module.Create(Parent)
         TextLabel.Text = _G.Text_TextDisplay
         TextLabel.Size = UDim2.new(1, 0, 1, 0)
         TextLabel.TextScaled = true
+        TextLabel.TextColor3 = _G.TextColor3
     end
 
     return ui
