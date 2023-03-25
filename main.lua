@@ -15,7 +15,10 @@ function module.Create(Name, Parent)
     BillboardGui.Name = Name
 
     table.insert(module.uis, {
-        [BillboardGui.Name] = {BillboardGui, BillboardGui.Parent};
+        [BillboardGui.Name] = {
+            ["Instance"] = BillboardGui;
+            ["Parent"] = BillboardGui.Parent;
+        };
     })
 
     function ui:CreateText(Name)
@@ -34,7 +37,10 @@ function module.Create(Name, Parent)
         TextLabel.TextColor3 = _G.TextColor3
 
         table.insert(module.uis, {
-            [TextLabel.Name] = {TextLabel, TextLabel.Parent};
+            [TextLabel.Name] = {
+                ["Instance"] = TextLabel;
+                ["Parent"] = TextLabel.Parent;
+            };
         })
 
         return self
