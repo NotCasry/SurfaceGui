@@ -1,6 +1,6 @@
 local module = {}
 
-function module.Create(Parent)
+function module.Create(Name, Parent)
     local ui = {}
 
     local BillboardGui = Instance.new("BillboardGui", Parent)
@@ -10,11 +10,13 @@ function module.Create(Parent)
     BillboardGui.Size = _G.BillboardSize
     BillboardGui.SizeOffset = _G.SizeOffset
     BillboardGui.StudsOffset = _G.StudsOffset
+    BillboardGui.Name = Name
 
-    function ui:CreateText()
+    function ui:CreateText(Name)
         local self = {}
 
         local TextLabel = Instance.new("TextLabel", BillboardGui)
+        TextLabel.Name = Name
         TextLabel.BackgroundColor3 = _G.Text_BackgroundColor3
         TextLabel.BackgroundTransparency = _G.Text_BackgroundTransparency
         TextLabel.BorderColor3 = _G.Text_BorderColor3
