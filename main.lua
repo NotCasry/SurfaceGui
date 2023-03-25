@@ -1,7 +1,5 @@
 local module = {}
 
-module.uis = {}
-
 function module.Create(Name, Parent)
     local ui = {}
 
@@ -13,13 +11,6 @@ function module.Create(Name, Parent)
     BillboardGui.SizeOffset = _G.SizeOffset
     BillboardGui.StudsOffset = _G.StudsOffset
     BillboardGui.Name = Name
-
-    table.insert(module.uis, {
-        [BillboardGui.Name] = {
-            ["Instance"] = BillboardGui;
-            ["Parent"] = BillboardGui.Parent;
-        };
-    })
 
     function ui:CreateText(Name)
         local self = {}
@@ -36,31 +27,15 @@ function module.Create(Name, Parent)
         TextLabel.TextScaled = true
         TextLabel.TextColor3 = _G.TextColor3
 
-        table.insert(module.uis, {
-            [TextLabel.Name] = {
-                ["Instance"] = TextLabel;
-                ["Parent"] = TextLabel.Parent;
-            };
-        })
-
         return self
     end
 
     return ui
 end
 
-function module.PrintTable()
-    for i, v in pairs(module.uis) do
-        print(i, v)
-    end
-end
-
-function module.RemoveUIElement(NameOfElement)
-    if table.find(module.uis, NameOfElement) then
-        module.uis[NameOfElement]["Instance"]:Destroy()
-        print("Destroyed!")
-    elseif not table.find(module.uis, NameOfElement) then
-        print("Element doesn't exist!")
+function module.RemoveUIElement(NameOfElement, Container)
+    if Container:FindFirstChild(NameOfElement, true) ~= nil then
+        Container:FindFirstChild(NameOfElement, true):Destroy()
     end
 end
 
