@@ -3,9 +3,9 @@ local module = {}
 local min = 1
 local max = 200000
 
--- Frame
 _G.X = 500
 _G.Y = 500
+_G.AlwaysOnTop = true
 _G.Frame_Transparency = 1
 _G.Frame_Color3 = Color3.fromRGB(0, 0, 0)
 
@@ -14,10 +14,12 @@ function module.Create(Parent)
 
     local Surface = Instance.new("SurfaceGui")
     Surface.Parent = Parent
+    Surface.Adornee = Parent
     Surface.Name = tostring(
         math.random(min, max)
     )
     Surface.CanvasSize = Vector2.new(_G.X, _G.Y)
+    Surface.AlwaysOnTop = _G.AlwaysOnTop
 
     local Frame = Instance.new("Frame")
     Frame.Parent = Surface
