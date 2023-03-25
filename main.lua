@@ -1,5 +1,7 @@
 local module = {}
 
+module.uis = {}
+
 function module.Create(Name, Parent)
     local ui = {}
 
@@ -11,6 +13,13 @@ function module.Create(Name, Parent)
     BillboardGui.SizeOffset = _G.SizeOffset
     BillboardGui.StudsOffset = _G.StudsOffset
     BillboardGui.Name = Name
+
+    table.insert(module.uis, {
+        [BillboardGui] = {
+            BillboardGui,
+            BillboardGui.Parent
+        }
+    })
 
     function ui:CreateText(Name)
         local self = {}
@@ -27,18 +36,20 @@ function module.Create(Name, Parent)
         TextLabel.TextScaled = true
         TextLabel.TextColor3 = _G.TextColor3
 
-        function self:Remove()
-            TextLabel:Destroy()
-        end
+        table.insert(module.uis, {
+            [TextLabel.Name] = {TextLabel, TextLabel.Parent}
+        })
 
         return self
     end
 
-    function ui:Remove()
-        BillboardGui:Destroy()
-    end
-
     return ui
+end
+
+function module.RemoveUIElement(NameOfElement)
+    if module.uis[NameOfElement] then
+        module.uis[NameOfElement][1]:Destroy()
+    end
 end
 
 return module
