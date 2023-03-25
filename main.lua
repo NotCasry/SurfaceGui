@@ -41,7 +41,7 @@ function module.Create(Name, Parent)
             TextLabel.BorderMode = self.Text_BorderMode
             TextLabel.BorderSizePixel = self.Text_BorderSizePixel
             TextLabel.Text = self.Text_TextDisplay
-            TextLabel.TextColor3 = self.TextColor3
+            TextLabel.TextColor3 = self.Text_TextColor3
             TextLabel.Size = UDim2.new(1, 0, 1, 0)
             TextLabel.TextScaled = true
         end
