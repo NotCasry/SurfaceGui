@@ -15,7 +15,7 @@ function module.Create(Name, Parent)
     BillboardGui.Name = Name
 
     table.insert(module.uis, {
-        [BillboardGui] = {BillboardGui, BillboardGui.Parent};
+        [BillboardGui.Name] = {BillboardGui, BillboardGui.Parent};
     })
 
     function ui:CreateText(Name)
