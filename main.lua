@@ -8,6 +8,8 @@
 
 ]]
 
+-- loadstring(game:HttpGet("https://raw.githubusercontent.com/NotCasry/SurfaceGui/main/main.lua"))()
+
 local module = {}
 
 function module.Create(Name, Parent)
