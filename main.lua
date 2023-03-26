@@ -5,6 +5,7 @@
 -- TextSize Available
 -- Rotation
 -- Visibility
+-- Allowing other parent types
 
 ]]
 
@@ -33,7 +34,7 @@ function module.Create(Name, Parent)
         return BillboardGui
     end
 
-    function ui:CreateText(Name, Billboard)
+    function ui:CreateText(Name, Parent)
         local self = {}
 
         self.Text_BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -52,7 +53,7 @@ function module.Create(Name, Parent)
         self.Text_Position = UDim2.new(0, 0, 0, 0)
 
         function self.CreateLabel()
-            local TextLabel = Instance.new("TextLabel", Billboard)
+            local TextLabel = Instance.new("TextLabel", Parent)
             TextLabel.Name = Name
             TextLabel.BackgroundColor3 = self.Text_BackgroundColor3
             TextLabel.BackgroundTransparency = self.Text_BackgroundTransparency
@@ -73,7 +74,7 @@ function module.Create(Name, Parent)
         return self
     end
 
-    function ui:CreateQuad(Name, Billboard)
+    function ui:CreateQuad(Name, Parent)
         local self = {}
 
         self.Frame_BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -88,7 +89,7 @@ function module.Create(Name, Parent)
         self.Frame_Position = UDim2.new(0, 0, 0, 0)
 
         function self.CreateFrame()
-            local Frame = Instance.new("Frame", Billboard)
+            local Frame = Instance.new("Frame", Parent)
             Frame.Name = Name
             Frame.BackgroundColor3 = self.Frame_BackgroundColor3
             Frame.BackgroundTransparency = self.Frame_BackgroundTransparency
