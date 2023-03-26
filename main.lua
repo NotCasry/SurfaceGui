@@ -1,3 +1,13 @@
+--[[
+
+-- Custom Size and Position
+-- New Element : Frame
+-- TextSize Available
+-- Rotation
+-- Visibility
+
+]]
+
 local module = {}
 
 function module.Create(Name, Parent)
@@ -21,7 +31,7 @@ function module.Create(Name, Parent)
         return BillboardGui
     end
 
-    function ui:CreateText(Name)
+    function ui:CreateText(Name, Billboard)
         local self = {}
 
         self.Text_BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -32,9 +42,14 @@ function module.Create(Name, Parent)
         self.Text_TextDisplay = ""
         self.Text_TextColor3 = Color3.fromRGB(255, 255, 255)
         self.Text_TextScaled = true
-        self.Text_Size = 14
+        self.Text_TextSize = 14
+        self.Text_Visible = true
+        self.Text_Rotation = 0
 
-        function self.CreateLabel(Billboard)
+        self.Text_Size = UDim2.new(1, 0, 1, 0)
+        self.Text_Position = UDim2.new(0, 0, 0, 0)
+
+        function self.CreateLabel()
             local TextLabel = Instance.new("TextLabel", Billboard)
             TextLabel.Name = Name
             TextLabel.BackgroundColor3 = self.Text_BackgroundColor3
@@ -44,9 +59,44 @@ function module.Create(Name, Parent)
             TextLabel.BorderSizePixel = self.Text_BorderSizePixel
             TextLabel.Text = self.Text_TextDisplay
             TextLabel.TextColor3 = self.Text_TextColor3
-            TextLabel.Size = UDim2.new(1, 0, 1, 0)
+            TextLabel.TextSize = self.Text_TextSize
             TextLabel.TextScaled = self.Text_TextScaled
             TextLabel.TextSize = self.Text_Size
+            TextLabel.Visible = self.Text_Visible
+            TextLabel.Rotation = self.Text_Rotation
+            TextLabel.Size = self.Text_Size
+            TextLabel.Position = self.Text_Position
+        end
+
+        return self
+    end
+
+    function ui:CreateQuad(Name, Billboard)
+        local self = {}
+
+        self.Frame_BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+        self.Frame_BackgroundTransparency = 1
+        self.Frame_BorderColor3 = Color3.fromRGB(0, 0, 0)
+        self.Frame_BorderMode = Enum.BorderMode.Outline
+        self.Frame_BorderSizePixel = 0
+        self.Frame_Visible = true
+        self.Frame_Rotation = 0
+
+        self.Frame_Size = UDim2.new(1, 0, 1, 0)
+        self.Frame_Position = UDim2.new(0, 0, 0, 0)
+
+        function self.CreateFrame()
+            local Frame = Instance.new("Frame", Billboard)
+            Frame.Name = Name
+            Frame.BackgroundColor3 = self.Frame_BackgroundColor3
+            Frame.BackgroundTransparency = self.Frame_BackgroundTransparency
+            Frame.Size = self.Frame_Size
+            Frame.Position = self.Frame_Position
+            Frame.BorderColor3 = self.Frame_BorderColor3
+            Frame.BorderMode = self.Frame_BorderMode
+            Frame.BorderSizePixel = self.Frame_BorderSizePixel
+            Frame.Visible = self.Frame_Visible
+            Frame.Rotation = self.Frame_Rotation
         end
 
         return self
